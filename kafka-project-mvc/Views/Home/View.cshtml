@@ -1,0 +1,33 @@
+@model IEnumerable<kafka_project_mvc.Models.OrderModel>
+
+<table style="width: 100%; border: 1px solid black;">
+  <thead style="  border: 1px solid black; background-color: blue; color: yellow;">
+    <th>Order Id</th>
+    <th>Customer Name</th>
+    <th>Order Description</th>
+    <th>Order Date</th>
+    <th>Order Amount</th>
+    <th>Order Status</th>
+  </thead>
+  <tbody style="  border: 1px solid black;">
+    @if (Model == null)
+    {
+      <p>No data found</p>
+    }
+    else
+    {
+      @foreach (var item in Model)
+      {
+        <tr style="  border: 1px solid black;">
+          <td>@item.OrderId</td>
+          <td>@item.CustomerName</td>
+          <td>@item.OrderDescription</td>
+          <td>@item.OrderDate</td>
+          <td>@item.OrderAmount</td>
+          <td>@item.OrderStatus</td>
+          <td>@Html.ActionLink("DELETE", "View", "Home",new {id=@item.OrderId}, new {@style="background-color: red; color: yellow; border-width: 2px; border-color: black;"})</td>
+        </tr>
+      }
+    }
+  </tbody>
+</table>

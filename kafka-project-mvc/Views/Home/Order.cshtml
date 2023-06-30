@@ -1,0 +1,12 @@
+@model kafka_project_mvc.Models.OrderModel
+
+<div>
+  @using(Html.BeginForm())
+  {
+    <p>@Html.LabelFor(m => m.CustomerName) @Html.TextBoxFor(m => m.CustomerName, new {@class="form-control"})</p>
+    <p>@Html.LabelFor(m => m.OrderDescription) @Html.TextBoxFor(m => m.OrderDescription, new {@class="form-control"})</p>
+    <p>@Html.LabelFor(m => m.OrderAmount) @Html.TextBoxFor(m => m.OrderAmount, new {@class="form-control"})</p>
+    <p><button type="submit" class="btn btn-primary">Place Order</button></p>
+    <p>@ViewBag.Message</p>
+  }
+</div>
